@@ -1,0 +1,189 @@
+@font-face {
+  font-family:Exo;
+  src: url("Fonts/Exo-Light.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: basline;
+  background: transparent;
+  font-family: "Exo", serif;
+}
+
+body, html{
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#titles {
+  height: 90%;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  text-align: center;
+}
+
+#titles > li > h1 {
+  display: inline-block;
+  padding-top: 20%;
+  margin-bottom: 10px;
+  font-family: "Exo", Times, 'Times New Roman', serif;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+#titles > li > h2 {
+  margin-bottom: 30%;
+  font-family: "Exo", sans-serif;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 4.5px;
+}
+
+#nav {
+  color: white;
+  list-style: none;
+  text-align: center;
+  padding: 30px 0px;
+  letter-spacing: 3px;
+}
+
+#nav > li {
+  display: inline-block;
+  padding: 0px 30px;
+  color: #FFD700;
+}
+
+#nav > li > a {
+  text-decoration: none;
+  color: white;
+}
+
+#nav > li > a:hover {
+  color: #FFD700;
+  transition: color 500ms ease;
+}
+
+.homepagehero {
+  min-height: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/background.gif");
+  background-size: cover;
+}
+
+.orderhero {
+  background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/background.gif");
+  background-size: cover;
+}
+
+.intouchhero {
+  background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/background.gif");
+  background-size: cover;
+}
+
+#foodItems {
+  text-align: left;
+  margin-right: 500px;
+}
+
+#foodItems > ul > li {
+  display: inline-block;
+  padding: 0px 30px;
+  text-align: center;
+}
+
+#foodItems > ul > li > ul {
+  list-style: none;
+  text-align: center;
+  padding: 30px 0px;
+  letter-spacing: 3px;
+}
+
+#foodItems > ul > li > ul > li{
+  padding: 5px;
+}
+
+#foodItems > ul > li > ul > li > img {
+  width: 160px;
+  height: 160px;
+}
+
+#foodItems > ul > li > ul > li > button {
+  padding: 15px;
+  font-family: Exo, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background-color: lightgrey;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#foodItems > ul > li > ul > li > button:hover {
+  background-color: #FFD700;
+  transition: background 500ms ease;
+}
+
+.cart {
+  position: absolute;
+  right: 0;
+  top: 80px;
+  font-size: 20px;
+}
+
+.cart > h1 {
+  padding-top: 10px;
+  padding-right: 100px;
+  font-weight: 800;
+  font-size: 60px;
+}
+
+.cart > ul {
+  padding-right: 95px;
+  list-style: none;
+  text-align: center;
+}
+
+.cart > ul > li {
+  padding: 10px 0;
+}
+
+.cart > button {
+  padding: 15px;
+  margin-left: 70px;
+  font-family: Exo, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background-color: lightgrey;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cart > button:hover {
+  background-color: #FFD700;
+  transition: background 500ms ease;
+}
+
+.cart > input {
+  text-align: center;
+  color: #4286f4;
+  padding: 8px 0;
+  margin-left: 30px;
+}
+
+#cartList > li > button:hover {
+  color: #ef3e41;
+  transition: color 500ms ease;
+}
