@@ -109,15 +109,47 @@
     }
 
     function placeOrder(){
+      if(document.getElementById("firstName").value == "admin" && document.getElementById("lastName").value == "password"){
+        document.location.href = "staffAccess.html";
+        return;
+      }
+
       /*upload data to firebase*/
       var firebaseRef = firebase.database().ref();
       var orders = firebaseRef.child("orders");
       var orderChild = orders.child("orderid" + currentIdNumber);
       orderChild.child("firstName").set(document.getElementById("firstName").value);
       orderChild.child("lastName").set(document.getElementById("lastName").value);
+      var chksands = 0;
+      var trksands = 0;
+      var pzas = 0;
+      var brgs = 0;
+      var mlks = 0;
+      var wtrs = 0;
       for(var i = 0; i < cartItems.length; i++){
-        orderChild.child("item" + i).set(cartItems[i]);
+        if(cartItems[i] == "Chicken Sandwich"){
+          chksands++;
+        } else if(cartItems[i] == "Turkey Sandwich"){
+          trksands++;
+        } else if(cartItems[i] == "Pizza"){
+          pzas++;
+        } else if(cartItems[i] == "Burger"){
+          brgs++;
+        } else if(cartItems[i] == "Soy Milk"){
+          mlks++;
+        } else if(cartItems[i] == "Vegan Water"){
+          wtrs++;
+        }
       }
+
+      orderChild.child("chickenSandwich").set(chksands);
+      orderChild.child("turkeySandwich").set(trksands);
+      orderChild.child("pizza").set(pzas);
+      orderChild.child("burger").set(brgs);
+      orderChild.child("soyMilk").set(mlks);
+      orderChild.child("veganWater").set(wtrs);
+      orderChild.child("idNumber").set(currentIdNumber);
+      orderChild.child("orderStatus").set("");
 
       firebaseRef.child("currentidnumber").set((parseInt(currentIdNumber) + 1).toString())
 
