@@ -236,3 +236,8 @@ th {
   margin: 0 5px;
   border: 1px solid lightgrey;
 }
+
+.cart > #totalprice {
+  margin-left: 90px;
+  color: #4bf442;
+}

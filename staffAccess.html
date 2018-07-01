@@ -8,6 +8,13 @@
 </head>
 
 <body>
+  <div class="orderhero">
+    <ul id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="orderOnline.html">Order Online</a></li>
+    </ul>
+  </div>
+
   <table id="myTable">
     <!–– Titles ––>
       <tr>
@@ -48,8 +55,10 @@
 
       var orders = data.val();
       var keys = Object.keys(orders);
+      var c = 0;
       for(var i = 0; i < keys.length; i++){
         var k = keys[i];
+        if(orders[k].orderStatus === ""){
           var id = orders[k].idNumber;
           var chickenSands = orders[k].chickenSandwich;
           var turkeySands = orders[k].turkeySandwich;
@@ -61,7 +70,8 @@
           var lastName = orders[k].lastName;
 
           var table = document.getElementById("myTable");
-          var row = table.insertRow(i);
+          var row = table.insertRow(c);
+          c++;
 
           var cell1 = row.insertCell(0);
           cell1.innerHTML = id;
@@ -89,12 +99,13 @@
 
           var cell9 = row.insertCell(8);
           cell9.innerHTML = waters;
+        }
       }
     }
   </script>
 
   <div id="orderStatus">
-    <input id="orderIdentificationNumber" type:"text" placeholder="id number"/>
+    <input id="orderIdentificationNumber" type:"text" placeholder="Order ID"/>
     <button onclick="fulfilled()">Fulfilled</button>
     <button onclick="cancelled()">Cancelled</button>
   </div>
@@ -104,12 +115,14 @@
       var idNum = document.getElementById("orderIdentificationNumber").value;
       var orderPath = firebase.database().ref().child("orders").child("orderid" + idNum);
       orderPath.child("orderStatus").set("fulfilled");
+      location.reload();
     }
 
     function cancelled(){
       var idNum = document.getElementById("orderIdentificationNumber").value;
       var orderPath = firebase.database().ref().child("orders").child("orderid" + idNum);
       orderPath.child("orderStatus").set("cancelled");
+      location.reload();
     }
   </script>
   </body>

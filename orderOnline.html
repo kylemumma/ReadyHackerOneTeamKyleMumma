@@ -21,6 +21,7 @@
         <ul>
           <li><image src="Images/chickenSandwich.jpg"</li>
           <li><h3>Chicken Sandwich</h3></li>
+          <li><h3>$12</h3></li>
           <li><button type="button" onclick="addToCart('Chicken Sandwich')">ADD TO CART</button></li>
         </ul>
       </li>
@@ -28,6 +29,7 @@
         <ul>
           <li><image src="Images/turkeySandwich.jpg"</li>
           <li><h3>Turkey Sandwich</h3></li>
+          <li><h3>$15</h3></li>
           <li><button type="button" onclick="addToCart('Turkey Sandwich')">ADD TO CART</button></li>
         </ul>
       </li>
@@ -35,6 +37,7 @@
         <ul>
           <li><image src="Images/pizza.png"</li>
           <li><h3>Pizza</h3></li>
+          <li><h3>$9</h3></li>
           <li><button type="button" onclick="addToCart('Pizza')">ADD TO CART</button></li>
         </ul>
       </li>
@@ -42,6 +45,7 @@
         <ul>
           <li><image src="Images/burger.jpg"</li>
           <li><h3>Burger</h3></li>
+          <li><h3>$17</h3></li>
           <li><button type="button" onclick="addToCart('Burger')">ADD TO CART</button></li>
         </ul>
       </li>
@@ -49,6 +53,7 @@
         <ul>
           <li><image src="Images/milk.jpg"</li>
           <li><h3>Soy Milk</h3></li>
+          <li><h3>$5</h3></li>
           <li><button type="button" onclick="addToCart('Soy Milk')">ADD TO CART</button></li>
         </ul>
       </li>
@@ -56,6 +61,7 @@
         <ul>
           <li><image src="Images/water.jpg"</li>
           <li><h3>Vegan Water</h3></li>
+          <li><h3>$3</h3></li>
           <li><button type="button" onclick="addToCart('Vegan Water')">ADD TO CART</button></li>
         </ul>
       </li>
@@ -87,6 +93,7 @@
       currentIdNumber = data.val();
     }
 
+    var totalCost = 0;
     function addToCart(item){
       var button = document.createElement("button");
       button.innerHTML = item;
@@ -96,6 +103,28 @@
       button.addEventListener("click", removeItself(button));
 
       cartItems.push(item);
+      updateTotal();
+
+    }
+
+    function updateTotal(){
+      totalCost = 0;
+      for(var i = 0; i < cartItems.length; i++){
+        if(cartItems[i] == "Chicken Sandwich"){
+          totalCost+=12;
+        } else if(cartItems[i] == "Turkey Sandwich"){
+          totalCost+=15;
+        } else if(cartItems[i] == "Pizza"){
+          totalCost+=9;
+        } else if(cartItems[i] == "Burger"){
+          totalCost+=17;
+        } else if(cartItems[i] == "Soy Milk"){
+          totalCost+=5;
+        } else if(cartItems[i] == "Vegan Water"){
+          totalCost+=3;
+        }
+      }
+        document.getElementById("totalprice").innerHTML = "Total: $" + totalCost;
     }
 
     function removeItself(elem){
@@ -105,6 +134,7 @@
         if (index > -1) {
           cartItems.splice(index, 1);
         }
+        updateTotal();
       }
     }
 
@@ -157,6 +187,7 @@
       document.getElementById("cartList").innerHTML = "";
       document.getElementById("firstName").value = "";
       document.getElementById("lastName").value = "";
+      totalCost = 0;
       window.alert("You have successfully placed your order!");
     }
   </script>
@@ -169,6 +200,7 @@
     <input id="lastName" type:"text" placeholder="Last Name"/><br/>
     <ul id="cartList">
     </ul>
+    <h2 id="totalprice"></h2><br/>
     <button type="button" onclick="placeOrder()">Place Order</button>
   </div>
 </body>
