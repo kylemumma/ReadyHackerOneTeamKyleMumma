@@ -1,6 +1,6 @@
 # Bonnie's Vegan Diner
 
-Website live at [https://kylemumma.me/external-sites/bonnies-vegan-diner/index.html](https://kylemumma.me/external-sites/bonnies-vegan-diner/index.html)
+Website live at [https://kylemumma.github.io/external-sites/bonnies-vegan-diner/index.html](https://kylemumma.github.io/external-sites/bonnies-vegan-diner/index.html)
 
 To properly run website, download as zip, unzip folder, open index.html file 
 (make sure all the downloaded files are in the same folder)
